@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "AI Content Shield",
+  "version": "1.0.0",
+  "description": "Hide AI-labeled posts on supported websites.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_title": "AI Content Shield",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.threads.com/*"],
+      "js": ["src/algorithms/threads.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
